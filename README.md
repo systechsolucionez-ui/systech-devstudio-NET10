@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="LICENSE"><img alt="Licencia: Apache 2.0" src="https://img.shields.io/badge/licencia-Apache%202.0-D4A64A"></a>
-  <a href="CHANGELOG.md"><img alt="Versión 1.1.0" src="https://img.shields.io/badge/versi%C3%B3n-1.1.0-0A1428"></a>
+  <a href="CHANGELOG.md"><img alt="Versión 1.1.1" src="https://img.shields.io/badge/versi%C3%B3n-1.1.1-0A1428"></a>
   <img alt=".NET 10 LTS" src="https://img.shields.io/badge/.NET-10%20LTS-512BD4">
 </p>
 
@@ -81,7 +81,7 @@ El `.zip` incluye:
 
 - el código y los tests (sin `.env`, `bin/`, `obj/`, `.git/` ni certificados);
 - `ENTREGA.md`, `verificacion.md` y `revision-independiente.md`, cada uno terminado en:
-  `Verificado con SYSTECH Studio v1.1.0 — Systech Soluciones · <fecha> · Huella SHA-256 del contenido: <huella>`;
+  `Verificado con SYSTECH Studio v1.1.1 — Systech Soluciones · <fecha> · Huella SHA-256 del contenido: <huella>`;
 - `SHA256SUMS.txt`, con la huella de cada archivo. El cliente lo comprueba con `sha256sum -c SHA256SUMS.txt`.
 
 La huella del `.zip` completo no puede ir adentro del propio `.zip`, así que va por fuera:

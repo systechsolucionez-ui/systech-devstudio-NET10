@@ -1,6 +1,6 @@
 {
   "name": "systech-studio",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "SYSTECH Studio: interfaz web para crear, verificar dos veces y entregar backends .NET con un agente que funciona con Claude Code.",
   "license": "Apache-2.0",
   "author": "José Antonio Vivas — Systech Soluciones",
@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "busboy": "1.6.0",
-    "yauzl": "3.2.0",
+    "yauzl": "3.4.0",
     "yazl": "3.3.1"
   }
 }

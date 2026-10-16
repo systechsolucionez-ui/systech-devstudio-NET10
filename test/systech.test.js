@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: Apache-2.0
 // Copyright 2026 José Antonio Vivas — Systech Soluciones
 
-// Firma de Systech Soluciones, licencia, privacidad y versión 1.1.0.
+// Firma de Systech Soluciones, licencia, privacidad y versión 1.1.x.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
@@ -21,8 +21,8 @@ const pkg = JSON.parse(read('package.json'));
 const SIGNATURE = `Verificado con SYSTECH Studio v${pkg.version} — Systech Soluciones`;
 const sha256 = (buf) => crypto.createHash('sha256').update(buf).digest('hex');
 
-test('package.json: versión 1.1.0, licencia Apache-2.0 y autor', () => {
-  assert.equal(pkg.version, '1.1.0');
+test('package.json: versión 1.1.x, licencia Apache-2.0 y autor', () => {
+  assert.match(pkg.version, /^1\.1\.\d+$/);
   assert.equal(pkg.license, 'Apache-2.0');
   assert.equal(pkg.author, 'José Antonio Vivas — Systech Soluciones');
   assert.match(pkg.config.authorUrl, /\?ref=studio$/);

@@ -13,7 +13,7 @@ body:
     attributes:
       label: Versión de SYSTECH Studio
       description: La ves en el pie de la interfaz o en "Acerca de".
-      placeholder: v1.1.0
+      placeholder: v1.1.1
     validations:
       required: true
   - type: dropdown

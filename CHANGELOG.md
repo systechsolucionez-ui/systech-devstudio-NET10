@@ -2,6 +2,11 @@
 
 Este archivo sigue el formato de [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/), y el proyecto usa [versionado semántico](https://semver.org/lang/es/).
 
+## [1.1.1] - 2026-10-16
+
+### Seguridad
+- `yauzl` se actualizó de 3.2.0 a 3.4.0 por el aviso [GHSA-gmq8-994r-jv83](https://github.com/advisories/GHSA-gmq8-994r-jv83), un error de límite al leer archivos .zip. El Studio descomprime los .zip que recibe, así que conviene actualizar. Con esto, `npm audit` queda en 0 vulnerabilidades.
+
 ## [1.1.0] - 2026-10-16
 
 ### Agregado

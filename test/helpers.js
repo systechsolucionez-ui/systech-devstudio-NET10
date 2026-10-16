@@ -1,11 +1,22 @@
 // SPDX-License-Identifier: Apache-2.0
 // Copyright 2026 José Antonio Vivas — Systech Soluciones
 
-import crc32 from 'buffer-crc32';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+// CRC-32 propio para los zips de prueba: no depende de paquetes transitivos.
+const CRC_TABLE = Array.from({ length: 256 }, (_, n) => {
+  let c = n;
+  for (let k = 0; k < 8; k += 1) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1;
+  return c >>> 0;
+});
+function crc32(buf) {
+  let c = 0xFFFFFFFF;
+  for (const b of buf) c = CRC_TABLE[(c ^ b) & 0xFF] ^ (c >>> 8);
+  return (c ^ 0xFFFFFFFF) >>> 0;
+}
 
 // Si el repositorio se subió desde Windows o por la web de GitHub, los scripts pueden perder el permiso
 // de ejecución. Las pruebas lo restauran para no depender de cómo se copió el proyecto.
@@ -22,7 +33,7 @@ export function makeZip(entries) {
   for (const e of entries) {
     const name = Buffer.from(e.name, 'utf8');
     const data = Buffer.from(e.data ?? '');
-    const crc = crc32.unsigned(data);
+    const crc = crc32(data);
     const local = Buffer.alloc(30);
     local.writeUInt32LE(0x04034b50, 0); local.writeUInt16LE(20, 4); local.writeUInt16LE(0x0800, 6);
     local.writeUInt32LE(crc, 14); local.writeUInt32LE(data.length, 18); local.writeUInt32LE(data.length, 22);
