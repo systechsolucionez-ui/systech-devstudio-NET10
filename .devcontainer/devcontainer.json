@@ -1,0 +1,19 @@
+{
+  "name": "SYSTECH Studio",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/devcontainers/features/dotnet:2": { "version": "10.0" },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "postCreateCommand": "npm ci --no-audit --no-fund && npm install -g @anthropic-ai/claude-code",
+  "forwardPorts": [5080],
+  "portsAttributes": {
+    "5080": { "label": "SYSTECH Studio", "onAutoForward": "openBrowser" }
+  },
+  "secrets": {
+    "ANTHROPIC_API_KEY": {
+      "description": "API key de Anthropic para el agente. Opcional si iniciás sesión con tu suscripción de Claude.",
+      "documentationUrl": "https://platform.claude.com/settings/keys"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 José Antonio Vivas — Systech Soluciones
+#
+# Al crear un tag v* (por ejemplo v1.1.0): corre las pruebas, arma systech-studio-vX.Y.Z.zip,
+# calcula SHA256SUMS.txt y publica ambos en una Release de GitHub (que cuenta las descargas).
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci --no-audit --no-fund
+
+      - name: Pruebas
+        run: |
+          chmod +x scripts/*.sh scripts/*.mjs test/fixtures/bin/dotnet
+          npm test
+
+      - name: Comprobar que el tag coincide con package.json
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          PKG="$(node -p "require('./package.json').version")"
+          if [ "$VERSION" != "$PKG" ]; then
+            echo "El tag es v$VERSION pero package.json dice $PKG" >&2
+            exit 1
+          fi
+
+      - name: Armar el .zip y las huellas
+        run: |
+          mkdir -p dist
+          NAME="systech-studio-${GITHUB_REF_NAME}"
+          git archive --format=zip --prefix="${NAME}/" -o "dist/${NAME}.zip" "${GITHUB_REF_NAME}"
+          cd dist && sha256sum "${NAME}.zip" > SHA256SUMS.txt && cat SHA256SUMS.txt
+
+      - name: Publicar la Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          NOTES="$(awk '/^## \['"${GITHUB_REF_NAME#v}"'\]/{f=1;next} /^## \[/{f=0} f' CHANGELOG.md)"
+          gh release create "${GITHUB_REF_NAME}" dist/*.zip dist/SHA256SUMS.txt \
+            --title "SYSTECH Studio ${GITHUB_REF_NAME}" \
+            --notes "${NOTES:-Ver CHANGELOG.md}"

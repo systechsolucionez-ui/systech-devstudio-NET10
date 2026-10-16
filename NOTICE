@@ -1,0 +1,15 @@
+SYSTECH Studio
+Copyright 2026 José Antonio Vivas — Systech Soluciones
+
+SYSTECH Studio. Copyright 2026 José Antonio Vivas — Systech Soluciones.
+Creado y mantenido por Systech Soluciones.
+Este aviso debe conservarse en toda copia o versión derivada (Apache 2.0, sección 4d).
+
+Este producto incluye software y recursos de terceros:
+
+- busboy, yauzl, yazl (licencia MIT), en node_modules/ al instalar.
+- Tipografías Sora, IBM Plex Sans y JetBrains Mono (SIL Open Font License 1.1),
+  en public/fonts/, con sus licencias en public/fonts/LICENSE-*.txt.
+
+SYSTECH Studio funciona con Claude Code. Claude y Claude Code son marcas de sus
+respectivos titulares; este proyecto no está afiliado a ellos ni cuenta con su respaldo.

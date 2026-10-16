@@ -1,0 +1,22 @@
+# Dependencias
+node_modules/
+
+# Secretos: nunca se suben
+.env
+.env.*
+!.env.example
+*.pem
+*.pfx
+*.p12
+
+# Trabajos del Studio (código de clientes, registros y entregas)
+systech-jobs/
+.systech/
+jobs/
+out/
+
+# Artefactos locales
+dist/
+*.log
+*.zip
+.DS_Store

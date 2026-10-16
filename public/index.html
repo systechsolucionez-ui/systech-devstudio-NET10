@@ -1,0 +1,67 @@
+<!doctype html>
+<!-- SYSTECH Studio · SPDX-License-Identifier: Apache-2.0 · Copyright 2026 José Antonio Vivas — Systech Soluciones -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SYSTECH Studio</title>
+<link rel="icon" href="/logo-mark.webp" type="image/webp">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/app.css">
+<script src="/app.js" type="module"></script>
+</head>
+<body>
+<div class="app">
+  <nav class="sidebar" aria-label="Navegación principal">
+    <a class="brand" href="#/nuevo">
+      <img src="/logo-mark.webp" alt="" width="44" height="46">
+      <span>
+        <span class="brand-name">SYS<span>TECH</span></span>
+        <span class="brand-sub">Studio · Agente .NET</span>
+      </span>
+    </a>
+    <div class="nav">
+      <a href="#/nuevo" data-nav="nuevo">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Nuevo trabajo</a>
+      <a href="#/taller" data-nav="taller">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg>Taller</a>
+      <a href="#/entregas" data-nav="entregas">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg>Entregas</a>
+      <a href="#/historial" data-nav="historial">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Historial</a>
+      <button type="button" class="nav-btn" id="about-open" aria-haspopup="dialog">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>Acerca de</button>
+    </div>
+    <div class="env-card" aria-live="polite">
+      <span class="brand-sub">Entorno</span>
+      <div id="env"><div class="env-row"><span class="dot"></span>Comprobando…</div></div>
+    </div>
+  </nav>
+  <main class="main" id="view" tabindex="-1"></main>
+</div>
+
+<footer class="signature" id="signature">
+  <span>SYSTECH Studio <span data-version>v1.1.0</span></span>
+  <span class="sep" aria-hidden="true">·</span>
+  <a href="https://www.linkedin.com/in/jos%C3%A9-antonio-vivas-rodriguez-0866843a7?ref=studio" target="_blank" rel="noopener" data-author-link>Creado por José Antonio Vivas</a>
+  <span class="sep" aria-hidden="true">·</span>
+  <span class="company">Systech Soluciones</span>
+</footer>
+
+<dialog class="about" id="about" aria-labelledby="about-title">
+  <div class="about-body">
+    <img src="/logo.webp" alt="Logo de SYSTECH" class="about-logo">
+    <h2 id="about-title">SYSTECH Studio</h2>
+    <p class="about-version">Versión <span data-version>v1.1.0</span></p>
+    <dl class="about-list">
+      <div><dt>Autor</dt><dd><a href="https://www.linkedin.com/in/jos%C3%A9-antonio-vivas-rodriguez-0866843a7?ref=studio" target="_blank" rel="noopener" data-author-link>José Antonio Vivas</a> · Systech Soluciones</dd></div>
+      <div><dt>Licencia</dt><dd><a href="https://github.com/systechsolucionez-ui/systech-devstudio-NET10/blob/main/LICENSE" target="_blank" rel="noopener" data-repo-link="/blob/main/LICENSE">Apache 2.0</a> · software libre y gratuito</dd></div>
+      <div><dt>Repositorio</dt><dd><a href="https://github.com/systechsolucionez-ui/systech-devstudio-NET10" target="_blank" rel="noopener" data-repo-link="">github.com/systechsolucionez-ui/systech-devstudio-NET10</a></dd></div>
+    </dl>
+    <p class="about-note">Funciona con Claude Code y con tu propia clave de API. Tus pedidos y tu código van solo a tu Codespace y al proveedor del modelo que vos configuraste: SYSTECH Studio no envía datos a Systech Soluciones ni a ningún otro servidor.</p>
+    <p class="about-note small">Se entrega "tal cual", sin garantía. Ver LICENSE y NOTICE.</p>
+    <div class="btns"><button class="btn primary" type="button" id="about-close">Cerrar</button></div>
+  </div>
+</dialog>
+</body>
+</html>

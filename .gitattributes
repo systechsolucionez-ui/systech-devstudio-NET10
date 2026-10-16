@@ -1,0 +1,6 @@
+*.sh text eol=lf
+*.mjs text eol=lf
+test/fixtures/bin/* text eol=lf
+*.woff2 binary
+*.webp binary
+*.png binary

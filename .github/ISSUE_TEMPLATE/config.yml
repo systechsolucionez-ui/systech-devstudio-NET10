@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Problema de seguridad (privado)
+    url: mailto:systechsolucionez@gmail.com?subject=SEGURIDAD%20-%20SYSTECH%20Studio
+    about: No lo publiques en un issue. Escribinos por email (ver SECURITY.md).
+  - name: Preguntas, ideas y casos de uso
+    url: https://github.com/systechsolucionez-ui/systech-devstudio-NET10/discussions
+    about: Contanos cómo usás SYSTECH Studio en Discussions.
